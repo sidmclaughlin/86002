@@ -1,4 +1,4 @@
-import { IsIP, IsNumber, IsString } from 'class-validator';
+import { IsIP, IsNumber, IsString, MinLength } from 'class-validator';
 
 export class Environment {
   @IsString()
@@ -24,4 +24,8 @@ export class Environment {
 
   @IsNumber()
   SERVER_PORT!: number;
+
+  @IsString()
+  @MinLength(32)
+  SESSION_SECRET!: string;
 }

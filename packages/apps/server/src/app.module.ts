@@ -1,10 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_GUARD } from '@nestjs/core';
 import { plainToClass } from 'class-transformer';
 import { validateSync } from 'class-validator';
 import { LoggerModule } from 'nestjs-pino';
+import { ApiV1Module } from './api/v1/api-v1.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthenticationGuard } from './authentication/guards/authentication.guard';
 import { Environment } from './common/dtos/environment.dto';
 import { PrismaService } from './common/servivces/prisma/prisma.service';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -21,7 +26,10 @@ import { PrismaService } from './common/servivces/prisma/prisma.service';
         return environment;
       },
     }),
+    UserModule,
+    AuthenticationModule,
+    ApiV1Module,
   ],
-  providers: [PrismaService],
+  providers: [{ provide: APP_GUARD, useClass: AuthenticationGuard }, PrismaService],
 })
 export class AppModule {}
