@@ -11,6 +11,7 @@ import { Environment } from './common/dtos/environment.dto';
 import { PrismaService } from './common/servivces/prisma/prisma.service';
 import { UserModule } from './user/user.module';
 import { SettingsModule } from './settings/settings.module';
+import { PaintModule } from './paint/paint.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { SettingsModule } from './settings/settings.module';
     AuthenticationModule,
     ApiV1Module,
     SettingsModule,
+    PaintModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthenticationGuard }, PrismaService],
 })
