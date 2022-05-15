@@ -1,0 +1,13 @@
+{
+  "name": "@86002/core-kit",
+  "description": "A Paint Company Core Library",
+  "author": {
+    "name": "Sid McLaughlin",
+    "email": "sidmclaughlin@gmail.com",
+    "url": "https://github.com/sidmclaughlin/86002-isl-18r-full-stack-developer"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.33",
+    "typescript": "^4.6.4"
+  }
+}
