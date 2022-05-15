@@ -4,6 +4,7 @@ import { plainToClass } from 'class-transformer';
 import { validateSync } from 'class-validator';
 import { LoggerModule } from 'nestjs-pino';
 import { Environment } from './common/dtos/environment.dto';
+import { PrismaService } from './common/servivces/prisma/prisma.service';
 
 @Module({
   imports: [
@@ -21,5 +22,6 @@ import { Environment } from './common/dtos/environment.dto';
       },
     }),
   ],
+  providers: [PrismaService],
 })
 export class AppModule {}
