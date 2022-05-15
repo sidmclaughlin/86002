@@ -13,6 +13,10 @@
       "path": "."
     },
     {
+      "name": "@86002/client",
+      "path": "./packages/apps/client"
+    },
+    {
       "name": "@86002/server",
       "path": "./packages/apps/server"
     },
