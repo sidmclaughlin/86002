@@ -60,6 +60,6 @@
     },
     "typescript.format.semicolons": "insert",
     "typescript.preferences.quoteStyle": "single",
-    "typescript.tsdk": "@86002/client/node_modules/typescript/lib"
+    "typescript.tsdk": "@86002/server/node_modules/typescript/lib"
   }
 }
