@@ -13,6 +13,10 @@
       "path": "."
     },
     {
+      "name": "@86002/server",
+      "path": "./packages/apps/server"
+    },
+    {
       "name": "@86002/core-kit",
       "path": "./packages/libs/core-kit"
     }
