@@ -10,11 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  users User[]
+}
+
 model User {
   id       Int    @id @default(autoincrement())
+  roleId   Int    @default(2)
   email    String @unique
   password String
   name     String
+
+  role Role @relation(fields: [roleId], references: [id])
 }
 
 model Paint {
@@ -22,4 +32,9 @@ model Paint {
   name  String @unique
   hex   String
   count Int    @default(0)
+}
+
+model Settings {
+  id                  Int @id @default(autoincrement())
+  threshold_stock_low Int @default(5)
 }
