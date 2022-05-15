@@ -9,8 +9,8 @@ import { LoginGuard } from 'src/authentication/guards/login.guard';
 })
 export class AuthenticationController {
   @Post('login')
-  @UseGuards(LoginGuard)
   @PublicRoute()
+  @UseGuards(LoginGuard)
   @HttpCode(200)
   login(@Req() request: Request) {
     return request.user;

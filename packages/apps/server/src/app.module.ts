@@ -10,6 +10,7 @@ import { AuthenticationGuard } from './authentication/guards/authentication.guar
 import { Environment } from './common/dtos/environment.dto';
 import { PrismaService } from './common/servivces/prisma/prisma.service';
 import { UserModule } from './user/user.module';
+import { SettingsModule } from './settings/settings.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { UserModule } from './user/user.module';
     UserModule,
     AuthenticationModule,
     ApiV1Module,
+    SettingsModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: AuthenticationGuard }, PrismaService],
 })

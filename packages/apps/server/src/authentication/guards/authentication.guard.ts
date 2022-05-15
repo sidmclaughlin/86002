@@ -17,8 +17,6 @@ export class AuthenticationGuard extends AuthGuard('local') {
       context.getClass(),
     ]);
 
-    console.log('isAuthenticated: ', request.isAuthenticated());
-
     return isPublicRoute ? true : request.isAuthenticated();
   }
 }
