@@ -7,11 +7,12 @@ import { LoggerModule } from 'nestjs-pino';
 import { ApiV1Module } from './api/v1/api-v1.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthenticationGuard } from './authentication/guards/authentication.guard';
+import { AuthorizationGuard } from './authorization/guards/authorization.guard';
 import { Environment } from './common/dtos/environment.dto';
 import { PrismaService } from './common/servivces/prisma/prisma.service';
-import { UserModule } from './user/user.module';
-import { SettingsModule } from './settings/settings.module';
 import { PaintModule } from './paint/paint.module';
+import { SettingsModule } from './settings/settings.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -34,6 +35,10 @@ import { PaintModule } from './paint/paint.module';
     SettingsModule,
     PaintModule,
   ],
-  providers: [{ provide: APP_GUARD, useClass: AuthenticationGuard }, PrismaService],
+  providers: [
+    { provide: APP_GUARD, useClass: AuthenticationGuard },
+    { provide: APP_GUARD, useClass: AuthorizationGuard },
+    PrismaService,
+  ],
 })
 export class AppModule {}
