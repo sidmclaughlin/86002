@@ -20,6 +20,12 @@ export class Environment {
   DATABASE_URL!: string;
 
   @IsIP(4)
+  REDIS_HOST!: string;
+
+  @IsNumber()
+  REDIS_PORT!: number;
+
+  @IsIP(4)
   SERVER_HOST!: string;
 
   @IsNumber()
