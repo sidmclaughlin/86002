@@ -8,7 +8,7 @@ import passport from 'passport';
 import { createClient } from 'redis';
 import { AppModule } from './app.module';
 import { Environment } from './common/dtos/environment.dto';
-import { PrismaService } from './common/servivces/prisma/prisma.service';
+import { PrismaService } from './common/services/prisma/prisma.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bufferLogs: true });

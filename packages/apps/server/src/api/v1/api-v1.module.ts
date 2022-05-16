@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AuthenticationService } from 'src/authentication/authentication.service';
-import { PrismaService } from 'src/common/servivces/prisma/prisma.service';
+import { PrismaService } from 'src/common/services/prisma/prisma.service';
 import { PaintService } from 'src/paint/paint.service';
 import { SettingsService } from 'src/settings/settings.service';
 import { UserService } from 'src/user/user.service';

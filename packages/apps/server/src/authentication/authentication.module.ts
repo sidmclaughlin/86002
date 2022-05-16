@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
-import { PrismaService } from 'src/common/servivces/prisma/prisma.service';
+import { PrismaService } from 'src/common/services/prisma/prisma.service';
 import { UserModule } from 'src/user/user.module';
 import { UserService } from 'src/user/user.service';
 import { AuthenticationService } from './authentication.service';

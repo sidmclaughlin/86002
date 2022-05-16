@@ -9,7 +9,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AuthenticationGuard } from './authentication/guards/authentication.guard';
 import { AuthorizationGuard } from './authorization/guards/authorization.guard';
 import { Environment } from './common/dtos/environment.dto';
-import { PrismaService } from './common/servivces/prisma/prisma.service';
+import { PrismaService } from './common/services/prisma/prisma.service';
 import { PaintModule } from './paint/paint.module';
 import { SettingsModule } from './settings/settings.module';
 import { UserModule } from './user/user.module';
