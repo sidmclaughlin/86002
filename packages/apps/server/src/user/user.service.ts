@@ -9,7 +9,7 @@ export class UserService {
 
   async findByEmail(email: string) {
     const user = await this.prismaService.user.findUnique({
-      select: { id: true, email: true, name: true },
+      select: { id: true, email: true, name: true, role: true },
       where: { email: email },
     });
     if (!user) throw new NotFoundException();
@@ -19,7 +19,7 @@ export class UserService {
 
   async findById(id: number) {
     const user = await this.prismaService.user.findUnique({
-      select: { id: true, email: true, name: true, role: { select: { id: true, name: true } } },
+      select: { id: true, email: true, name: true, role: true },
       where: { id: id },
     });
     if (!user) throw new NotFoundException();

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
+import { Role } from '@prisma/client';
 import { Authorize } from 'src/authorization/decorators/authorize.decorator';
-import { Role } from 'src/authorization/enums/role.enum';
 import { FindOneParams } from 'src/common/dtos/find-one-params.dto';
 import { UpdatePaintDto } from 'src/paint/dtos/update-paint.dto';
 import { PaintService } from 'src/paint/paint.service';
@@ -23,7 +23,7 @@ export class PaintController {
   }
 
   @Patch(':id')
-  @Authorize(Role.Editor)
+  @Authorize(Role.ADMIN, Role.EDITOR)
   async updatePaint(@Param() params: FindOneParams, @Body() data: UpdatePaintDto) {
     return await this.paintService.updatePaint(parseInt(params.id, 10), data);
   }

@@ -62,23 +62,6 @@ async function main() {
     },
   });
 
-  // Seed Roles
-  await prisma.role.upsert({
-    where: { name: 'Editor' },
-    update: {},
-    create: {
-      name: 'Editor',
-    },
-  });
-
-  await prisma.role.upsert({
-    where: { name: 'User' },
-    update: {},
-    create: {
-      name: 'User',
-    },
-  });
-
   // Seed Users
   await prisma.user.upsert({
     where: { email: 'john@example.com' },
@@ -95,7 +78,7 @@ async function main() {
     update: {},
     create: {
       email: 'jane@example.com',
-      roleId: 1,
+      role: 'ADMIN',
       name: 'Jane',
       password: '$2a$10$gmRFMi6MOmiLyy1yEtKplOimj8Qx4jqPuBgZIHuyZv8BEJMjTLmli',
     },
@@ -106,7 +89,7 @@ async function main() {
     update: {},
     create: {
       email: 'michelangelo@example.com',
-      roleId: 1,
+      role: 'EDITOR',
       name: 'Michelangelo',
       password: '$2a$10$VRzY6hpbRvuPlgMPYjQa/uzq4gMuQwu.DuzL9MIjru9t6IO0haagy',
     },
