@@ -1,5 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
+import { Authorize } from 'src/authorization/decorators/authorize.decorator';
+import { Role } from 'src/authorization/enums/role.enum';
 import { FindOneParams } from 'src/common/dtos/find-one-params.dto';
+import { UpdatePaintDto } from 'src/paint/dtos/update-paint.dto';
 import { PaintService } from 'src/paint/paint.service';
 
 @Controller({
@@ -17,5 +20,11 @@ export class PaintController {
   @Get(':id')
   async getPaint(@Param() params: FindOneParams) {
     return await this.paintService.getPaint(parseInt(params.id, 10));
+  }
+
+  @Patch(':id')
+  @Authorize(Role.Editor)
+  async updatePaint(@Param() params: FindOneParams, @Body() data: UpdatePaintDto) {
+    return await this.paintService.updatePaint(parseInt(params.id, 10), data);
   }
 }
