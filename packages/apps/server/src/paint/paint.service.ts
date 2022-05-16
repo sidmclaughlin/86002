@@ -7,7 +7,7 @@ export class PaintService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getPaints() {
-    return await this.prismaService.paint.findMany();
+    return await this.prismaService.paint.findMany({ orderBy: { id: 'asc' } });
   }
 
   async getPaint(id: number) {
