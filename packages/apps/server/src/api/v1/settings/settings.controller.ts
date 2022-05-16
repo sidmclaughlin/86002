@@ -1,5 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Patch } from '@nestjs/common';
+import { Role } from '@prisma/client';
 import { PublicRoute } from 'src/authentication/decorators/public-route.decorator';
+import { Authorize } from 'src/authorization/decorators/authorize.decorator';
+import { UpdateSettingsDto } from 'src/settings/dtos/update-settings.dto';
 import { SettingsService } from 'src/settings/settings.service';
 
 @Controller({
@@ -13,5 +16,11 @@ export class SettingsController {
   @PublicRoute()
   getSettings() {
     return this.settingsService.getSettings();
+  }
+
+  @Patch()
+  @Authorize(Role.ADMIN)
+  updateSettings(@Body() data: UpdateSettingsDto) {
+    return this.settingsService.updateSettings(data);
   }
 }

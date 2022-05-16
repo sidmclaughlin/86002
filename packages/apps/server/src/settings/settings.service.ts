@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/common/servivces/prisma/prisma.service';
+import { UpdateSettingsDto } from './dtos/update-settings.dto';
 
 @Injectable()
 export class SettingsService {
@@ -7,5 +8,12 @@ export class SettingsService {
 
   async getSettings() {
     return await this.prismaService.settings.findFirst({ select: { threshold_stock_low: true } });
+  }
+
+  async updateSettings(data: UpdateSettingsDto) {
+    const settings = await this.prismaService.settings.findFirst({ select: { id: true } });
+    if (!settings) throw new NotFoundException();
+
+    return await this.prismaService.settings.update({ where: { id: settings.id }, data: data });
   }
 }
