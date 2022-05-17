@@ -1,6 +1,6 @@
+import { UpdatePaintDto } from '@86002/core-kit';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/common/services/prisma/prisma.service';
-import { UpdatePaintDto } from './dtos/update-paint.dto';
 
 @Injectable()
 export class PaintService {

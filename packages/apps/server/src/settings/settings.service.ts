@@ -1,6 +1,6 @@
+import { UpdateSettingsDto } from '@86002/core-kit';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/common/services/prisma/prisma.service';
-import { UpdateSettingsDto } from './dtos/update-settings.dto';
 
 @Injectable()
 export class SettingsService {

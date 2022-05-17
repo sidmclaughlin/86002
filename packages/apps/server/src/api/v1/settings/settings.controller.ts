@@ -1,8 +1,8 @@
+import { UpdateSettingsDto } from '@86002/core-kit';
 import { Body, Controller, Get, Patch } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { PublicRoute } from 'src/authentication/decorators/public-route.decorator';
 import { Authorize } from 'src/authorization/decorators/authorize.decorator';
-import { UpdateSettingsDto } from 'src/settings/dtos/update-settings.dto';
 import { SettingsService } from 'src/settings/settings.service';
 
 @Controller({

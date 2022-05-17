@@ -1,8 +1,8 @@
+import { LoginDto } from '@86002/core-kit';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { compare } from 'bcryptjs';
 import { PrismaService } from 'src/common/services/prisma/prisma.service';
 import { UserService } from 'src/user/user.service';
-import { LoginDto } from './dtos/login.dto';
 
 @Injectable()
 export class AuthenticationService {

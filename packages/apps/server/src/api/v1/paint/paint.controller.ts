@@ -1,8 +1,8 @@
+import { UpdatePaintDto } from '@86002/core-kit';
 import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { Authorize } from 'src/authorization/decorators/authorize.decorator';
 import { FindOneParams } from 'src/common/dtos/find-one-params.dto';
-import { UpdatePaintDto } from 'src/paint/dtos/update-paint.dto';
 import { PaintService } from 'src/paint/paint.service';
 
 @Controller({
