@@ -46,6 +46,7 @@ const config = {
       ],
       rules: {
         '@typescript-eslint/no-empty-function': 0,
+        '@typescript-eslint/restrict-template-expressions': 0,
         '@typescript-eslint/no-unsafe-argument': 0,
         '@typescript-eslint/no-unsafe-assignment': 0,
         '@typescript-eslint/no-unsafe-call': 0,
