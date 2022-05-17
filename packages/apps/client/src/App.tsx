@@ -1,7 +1,5 @@
-import { message } from '@86002/core-kit';
-
 function App() {
-  return <div>{message}</div>;
+  return <div></div>;
 }
 
 export default App;
