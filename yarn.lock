@@ -9,6 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@86002/client@workspace:packages/apps/client"
   dependencies:
+    "@hookform/resolvers": ^2.8.9
     "@mantine/core": ^4.2.5
     "@mantine/hooks": ^4.2.5
     "@mantine/modals": ^4.2.5
@@ -21,6 +22,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet-async: ^1.3.0
+    react-hook-form: ^7.31.1
     react-redux: ^8.0.1
     react-router-dom: ^6.3.0
     standard-version: ^9.3.2
@@ -997,6 +999,15 @@ __metadata:
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
   checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
+  languageName: node
+  linkType: hard
+
+"@hookform/resolvers@npm:^2.8.9":
+  version: 2.8.9
+  resolution: "@hookform/resolvers@npm:2.8.9"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: bb41c7243327f69d58914226abc8d81c69d2574e1685adf4ddd5599392ef0c8dac80a12dd08fc2e82c48d0af1447a8898098a15c7184f5e8f4100a4898c397dc
   languageName: node
   linkType: hard
 
@@ -8586,6 +8597,15 @@ __metadata:
     react: ^16.6.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.6.0 || ^17.0.0 || ^18.0.0
   checksum: 7ca7e47f8af14ea186688b512a87ab912bf6041312b297f92516341b140b3f0f8aedf5a44d226d99e69ed067b0cc106e38aeb9c9b738ffcc63d10721c844db90
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.31.1":
+  version: 7.31.1
+  resolution: "react-hook-form@npm:7.31.1"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: c387f81f0a740b610a601e06e148fce1abd466d353c9a5fd05253644d47270b69c8a0278cdc0f28a3adf5bef2c510adb4bcf37269892dc596750af8e8d062fb1
   languageName: node
   linkType: hard
 
