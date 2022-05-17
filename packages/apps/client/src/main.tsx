@@ -1,6 +1,9 @@
+import { MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+import { NotificationsProvider } from '@mantine/notifications';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Helmet } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
@@ -10,8 +13,16 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <Helmet titleTemplate="%s | A Paint Company" />
-        <App />
+        <HelmetProvider>
+          <Helmet titleTemplate="%s | A Paint Company" />
+          <MantineProvider>
+            <ModalsProvider>
+              <NotificationsProvider>
+                <App />
+              </NotificationsProvider>
+            </ModalsProvider>
+          </MantineProvider>
+        </HelmetProvider>
       </Router>
     </Provider>
   </React.StrictMode>,

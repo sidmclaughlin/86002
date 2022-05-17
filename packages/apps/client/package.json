@@ -16,6 +16,10 @@
     "version": "standard-version -t @86002/client@"
   },
   "dependencies": {
+    "@mantine/core": "^4.2.5",
+    "@mantine/hooks": "^4.2.5",
+    "@mantine/modals": "^4.2.5",
+    "@mantine/notifications": "^4.2.5",
     "@reduxjs/toolkit": "^1.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
