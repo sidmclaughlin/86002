@@ -8,6 +8,7 @@ interface Props {
 
 const AuthGuard = ({ children, redirectTo }: Props) => {
   const isAuthenticated = useAppSelector(state => state.authentication.user) == null ? false : true;
+
   return isAuthenticated ? children : <Navigate to={redirectTo} />;
 };
 

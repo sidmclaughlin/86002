@@ -17,7 +17,7 @@ ReactDOM.render(
           <Helmet titleTemplate="%s | A Paint Company" />
           <MantineProvider>
             <ModalsProvider>
-              <NotificationsProvider>
+              <NotificationsProvider position="top-right">
                 <App />
               </NotificationsProvider>
             </ModalsProvider>
