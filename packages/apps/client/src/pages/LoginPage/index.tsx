@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { getErrorMessage, LoginDto } from '@86002/core-kit';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { Button, Card, Center, LoadingOverlay, PasswordInput, Space, TextInput, Title, Tooltip } from '@mantine/core';
+import { Button, Card, Center, LoadingOverlay, PasswordInput, Space, TextInput, Title } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { AlertCircle, Paint } from 'tabler-icons-react';
+import { Lock, Mail, Paint } from 'tabler-icons-react';
 import { setUser } from '../../authentication/authentication.slice';
 import { useAppDispatch } from '../../store/hooks';
 import { useGetProfileQuery, useLoginMutation } from '../../store/services/api.service';
@@ -82,13 +82,8 @@ const LoginPage = () => {
                       {...field}
                       size="sm"
                       placeholder="Email Address"
-                      rightSection={
-                        errors.email && (
-                          <Tooltip label={errors.email.message} position="top" placement="end">
-                            <AlertCircle size={16} style={{ color: '#F00', display: 'block' }} />
-                          </Tooltip>
-                        )
-                      }
+                      error={errors.email && errors.email.message}
+                      icon={<Mail size={16} />}
                     />
                   )}
                 />
@@ -101,13 +96,8 @@ const LoginPage = () => {
                       {...field}
                       size="sm"
                       placeholder="Password"
-                      rightSection={
-                        errors.password && (
-                          <Tooltip label={errors.password.message} position="top" placement="end">
-                            <AlertCircle size={16} style={{ color: '#F00', display: 'block' }} />
-                          </Tooltip>
-                        )
-                      }
+                      error={errors.password && errors.password.message}
+                      icon={<Lock size={16} />}
                     />
                   )}
                 />
