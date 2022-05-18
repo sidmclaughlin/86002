@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { getErrorMessage, LoginDto } from '@86002/core-kit';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { Button, Card, Center, LoadingOverlay, Space, TextInput, Title, Tooltip } from '@mantine/core';
+import { Button, Card, Center, LoadingOverlay, PasswordInput, Space, TextInput, Title, Tooltip } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useEffect, useRef } from 'react';
@@ -55,7 +55,6 @@ const LoginPage = () => {
       }
     } catch (error) {
       showNotification({ title: 'Error', message: getErrorMessage((error as FetchBaseQueryError).data), color: 'red' });
-      throw error;
     }
   };
 
@@ -98,7 +97,7 @@ const LoginPage = () => {
                   name="password"
                   control={control}
                   render={({ field }) => (
-                    <TextInput
+                    <PasswordInput
                       {...field}
                       size="sm"
                       placeholder="Password"
