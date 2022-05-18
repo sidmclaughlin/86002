@@ -8,7 +8,7 @@ import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { AlertCircle } from 'tabler-icons-react';
+import { AlertCircle, Paint } from 'tabler-icons-react';
 import { setUser } from '../../authentication/authentication.slice';
 import { useAppDispatch } from '../../store/hooks';
 import { useGetProfileQuery, useLoginMutation } from '../../store/services/api.service';
@@ -64,11 +64,15 @@ const LoginPage = () => {
       <Helmet title="Login" />
       <Center style={{ width: '100vw', height: '100vh' }}>
         <div>
-          <Title order={1}>A Paint Company</Title>
+          <Title order={1}>
+            <Paint /> A Paint Company
+          </Title>
           <Card p="xs" shadow="md" withBorder={true}>
             <LoadingOverlay visible={getProfileIsLoading || loginIsLoading} />
             <div>
-              <Title order={3}>Login</Title>
+              <div style={{ textAlign: 'center' }}>
+                <Title order={3}>Login</Title>
+              </div>
               <Space h="xs" />
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Controller
@@ -109,7 +113,7 @@ const LoginPage = () => {
                   )}
                 />
                 <Space h="xs" />
-                <Button size="xs" type="submit">
+                <Button fullWidth size="xs" type="submit">
                   Login
                 </Button>
               </form>
