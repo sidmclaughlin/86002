@@ -38,7 +38,10 @@ async function bootstrap() {
   app.useLogger(app.get(Logger));
   app.setGlobalPrefix('api');
   app.enableVersioning();
-  app.enableCors();
+  app.enableCors({
+    credentials: true,
+    origin: 'https://86002.sdny.dev',
+  });
 
   await app.listen(configService.get('SERVER_PORT'), configService.get('SERVER_HOST'));
 }
