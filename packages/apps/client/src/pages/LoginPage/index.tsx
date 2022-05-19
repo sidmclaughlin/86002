@@ -135,18 +135,13 @@ const LoginPage = () => {
             </thead>
             <tbody>
               <tr>
-                <td>User</td>
+                <td>Editor</td>
                 <td>john@example.com</td>
                 <td>password</td>
               </tr>
               <tr>
                 <td>Admin</td>
                 <td>jane@example.com</td>
-                <td>password</td>
-              </tr>
-              <tr>
-                <td>Editor</td>
-                <td>michelangelo@example.com</td>
                 <td>password</td>
               </tr>
             </tbody>
