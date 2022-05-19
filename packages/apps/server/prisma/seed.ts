@@ -68,6 +68,7 @@ async function main() {
     update: {},
     create: {
       email: 'john@example.com',
+      role: 'EDITOR',
       name: 'John',
       password: '$2a$10$xsMibUoSxRaxL7mEY6VUD.jo9xMcDmvBJL57GjTZ8ohDS.UJ96qla',
     },
@@ -81,17 +82,6 @@ async function main() {
       role: 'ADMIN',
       name: 'Jane',
       password: '$2a$10$gmRFMi6MOmiLyy1yEtKplOimj8Qx4jqPuBgZIHuyZv8BEJMjTLmli',
-    },
-  });
-
-  await prisma.user.upsert({
-    where: { email: 'michelangelo@example.com' },
-    update: {},
-    create: {
-      email: 'michelangelo@example.com',
-      role: 'EDITOR',
-      name: 'Michelangelo',
-      password: '$2a$10$VRzY6hpbRvuPlgMPYjQa/uzq4gMuQwu.DuzL9MIjru9t6IO0haagy',
     },
   });
 }
