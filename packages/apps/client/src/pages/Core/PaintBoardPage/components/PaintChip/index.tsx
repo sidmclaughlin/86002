@@ -1,4 +1,4 @@
-import { ActionIcon, Card } from '@mantine/core';
+import { ActionIcon, Card, Text } from '@mantine/core';
 import { Edit } from 'tabler-icons-react';
 import { getContrastYIQ } from '../../../../../common/utils/get-contrast-yiq.util';
 import { Paint } from '../../../../../paint/dtos/paint.dto';
@@ -19,7 +19,10 @@ export const PaintChip = ({ paint }: Props) => {
       })}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ color: constrastingColor }}>{paint.name}</span>
+        <div style={{ color: constrastingColor }}>
+          <Text>{paint.name}</Text>
+          <Text size={'xs'}>Qty: {paint.count}</Text>
+        </div>
         <ActionIcon variant="outline">
           <Edit color={constrastingColor} size={24} />
         </ActionIcon>
