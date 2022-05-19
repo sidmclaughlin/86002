@@ -43,12 +43,6 @@ export const PaintChip = ({ showEdit = true, paint }: Props) => {
               <Edit onClick={() => setModalVisible(true)} color={constrastingColor} size={24} />
             </ActionIcon>
           )}
-          {/* {(showEdit &&
-            user != null && [Role.ADMIN, Role.EDITOR].includes(user.role)) && (
-              <ActionIcon variant="outline">
-                <Edit onClick={() => setModalVisible(true)} color={constrastingColor} size={24} />
-              </ActionIcon>,
-            )} */}
         </div>
       </Card>
     </>
