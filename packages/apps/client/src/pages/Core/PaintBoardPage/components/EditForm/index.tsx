@@ -1,9 +1,9 @@
 import { UpdatePaintDto } from '@86002/core-kit';
+import { NumberOutlined } from '@ant-design/icons';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import { Button, NumberInput, Space } from '@mantine/core';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Hash } from 'tabler-icons-react';
 import { Paint } from '../../../../../paint/dtos/paint.dto';
 import { useUpdatePaintMutation } from '../../../../../store/services/api.service';
 import { PaintChip } from '../PaintChip';
@@ -47,7 +47,7 @@ export const EditForm = ({ paint, setModalVisible }: Props) => {
               placeholder="Count"
               label="Count"
               error={errors.count && errors.count.message}
-              icon={<Hash size={16} />}
+              icon={<NumberOutlined style={{ fontSize: '16px' }} />}
               stepHoldDelay={500}
               stepHoldInterval={t => Math.max(1000 / t ** 2, 25)}
               min={0}

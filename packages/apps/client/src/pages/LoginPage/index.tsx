@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { getErrorMessage, LoginDto } from '@86002/core-kit';
+import { FormatPainterOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
 import {
   Button,
@@ -19,7 +20,6 @@ import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { Lock, Mail, Paint } from 'tabler-icons-react';
 import { setUser } from '../../authentication/authentication.slice';
 import { useAppDispatch } from '../../store/hooks';
 import { useGetProfileQuery, useLoginMutation } from '../../store/services/api.service';
@@ -76,7 +76,7 @@ const LoginPage = () => {
         <div>
           <div>
             <Title order={1}>
-              <Paint /> A Paint Company
+              <FormatPainterOutlined /> A Paint Company
             </Title>
           </div>
           <Card p="xs" shadow="md" withBorder={true}>
@@ -96,7 +96,7 @@ const LoginPage = () => {
                       size="sm"
                       placeholder="Email Address"
                       error={errors.email && errors.email.message}
-                      icon={<Mail size={16} />}
+                      icon={<MailOutlined style={{ fontSize: '16px' }} />}
                     />
                   )}
                 />
@@ -110,7 +110,7 @@ const LoginPage = () => {
                       size="sm"
                       placeholder="Password"
                       error={errors.password && errors.password.message}
-                      icon={<Lock size={16} />}
+                      icon={<LockOutlined style={{ fontSize: '16px' }} />}
                     />
                   )}
                 />

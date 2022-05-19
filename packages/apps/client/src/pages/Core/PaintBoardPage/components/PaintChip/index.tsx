@@ -1,6 +1,6 @@
+import { EditOutlined } from '@ant-design/icons';
 import { ActionIcon, Card, Modal, Text } from '@mantine/core';
 import { useState } from 'react';
-import { Edit } from 'tabler-icons-react';
 import { Role } from '../../../../../authentication/dtos/user.dto';
 import { getContrastYIQ } from '../../../../../common/utils/get-contrast-yiq.util';
 import { Paint } from '../../../../../paint/dtos/paint.dto';
@@ -40,7 +40,10 @@ export const PaintChip = ({ showEdit = true, paint }: Props) => {
           </div>
           {showEdit && user != null && (user.role === Role.ADMIN || user.role === Role.EDITOR) && (
             <ActionIcon variant="outline">
-              <Edit onClick={() => setModalVisible(true)} color={constrastingColor} size={24} />
+              <EditOutlined
+                onClick={() => setModalVisible(true)}
+                style={{ fontSize: '24px', color: constrastingColor }}
+              />
             </ActionIcon>
           )}
         </div>

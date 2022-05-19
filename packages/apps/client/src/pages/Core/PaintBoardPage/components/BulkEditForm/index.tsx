@@ -1,6 +1,6 @@
+import { NumberOutlined } from '@ant-design/icons';
 import { Button, NumberInput, Space } from '@mantine/core';
 import { Controller, useForm } from 'react-hook-form';
-import { Hash } from 'tabler-icons-react';
 import { Paint } from '../../../../../paint/dtos/paint.dto';
 import { useUpdatePaintMutation } from '../../../../../store/services/api.service';
 import { PaintChip } from '../PaintChip';
@@ -65,7 +65,7 @@ export const BulkEditForm = ({ setModalVisible, paints }: Props) => {
               size="sm"
               placeholder="Count"
               label="Count"
-              icon={<Hash size={16} />}
+              icon={<NumberOutlined style={{ fontSize: '16px' }} />}
               stepHoldDelay={500}
               stepHoldInterval={t => Math.max(1000 / t ** 2, 25)}
               min={0}
@@ -85,7 +85,7 @@ export const BulkEditForm = ({ setModalVisible, paints }: Props) => {
               size="sm"
               placeholder="Count"
               label="Count"
-              icon={<Hash size={16} />}
+              icon={<NumberOutlined style={{ fontSize: '16px' }} />}
               stepHoldDelay={500}
               stepHoldInterval={t => Math.max(1000 / t ** 2, 25)}
               min={0}
@@ -105,7 +105,7 @@ export const BulkEditForm = ({ setModalVisible, paints }: Props) => {
               size="sm"
               placeholder="Count"
               label="Count"
-              icon={<Hash size={16} />}
+              icon={<NumberOutlined style={{ fontSize: '16px' }} />}
               stepHoldDelay={500}
               stepHoldInterval={t => Math.max(1000 / t ** 2, 25)}
               min={0}
@@ -125,7 +125,7 @@ export const BulkEditForm = ({ setModalVisible, paints }: Props) => {
               size="sm"
               placeholder="Count"
               label="Count"
-              icon={<Hash size={16} />}
+              icon={<NumberOutlined style={{ fontSize: '16px' }} />}
               stepHoldDelay={500}
               stepHoldInterval={t => Math.max(1000 / t ** 2, 25)}
               min={0}
@@ -145,7 +145,7 @@ export const BulkEditForm = ({ setModalVisible, paints }: Props) => {
               size="sm"
               placeholder="Count"
               label="Count"
-              icon={<Hash size={16} />}
+              icon={<NumberOutlined style={{ fontSize: '16px' }} />}
               stepHoldDelay={500}
               stepHoldInterval={t => Math.max(1000 / t ** 2, 25)}
               min={0}
