@@ -51,7 +51,7 @@ const MenuButtons = (props: MenuButtonProps) => {
 export const CoreMenu = () => {
   const dispatch = useAppDispatch();
 
-  const { role } = useAppSelector(state => state.authentication.user!);
+  const { role } = useAppSelector(state => state.authentication.user) ?? {};
 
   const [apiLogout] = useLogoutMutation();
 

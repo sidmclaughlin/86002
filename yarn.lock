@@ -15,12 +15,14 @@ __metadata:
     "@mantine/modals": ^4.2.5
     "@mantine/notifications": ^4.2.5
     "@reduxjs/toolkit": ^1.8.1
+    "@types/hex-color-regex": ^1.1.1
     "@types/node": ^17.0.33
     "@types/react": ^17.0.45
     "@types/react-dom": ^17.0.11
     "@vitejs/plugin-react": ^1.3.0
     class-transformer: ^0.5.1
     class-validator: ^0.13.2
+    hex-color-regex: ^1.1.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet-async: ^1.3.0
@@ -2028,6 +2030,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
+  languageName: node
+  linkType: hard
+
+"@types/hex-color-regex@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@types/hex-color-regex@npm:1.1.1"
+  checksum: e5ed2c820e2c17e9147564b1bfc86541cab257565750cd8a9cc31c473d539c655e56bd01533d6ec9c4838244e7bd0d779348cd29a811ef022b07554b5ef9ad02
   languageName: node
   linkType: hard
 
@@ -5812,6 +5821,13 @@ __metadata:
     capital-case: ^1.0.4
     tslib: ^2.0.3
   checksum: 571c83eeb25e8130d172218712f807c0b96d62b020981400bccc1503a7cf14b09b8b10498a962d2739eccf231d950e3848ba7d420b58a6acd2f9283439546cd9
+  languageName: node
+  linkType: hard
+
+"hex-color-regex@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "hex-color-regex@npm:1.1.0"
+  checksum: 44fa1b7a26d745012f3bfeeab8015f60514f72d2fcf10dce33068352456b8d71a2e6bc5a17f933ab470da2c5ab1e3e04b05caf3fefe3c1cabd7e02e516fc8784
   languageName: node
   linkType: hard
 

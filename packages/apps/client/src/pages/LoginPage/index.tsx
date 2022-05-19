@@ -63,9 +63,11 @@ const LoginPage = () => {
       <Helmet title="Login" />
       <Center style={{ width: '100vw', height: '100vh' }}>
         <div>
-          <Title order={1}>
-            <Paint /> A Paint Company
-          </Title>
+          <div>
+            <Title order={1}>
+              <Paint /> A Paint Company
+            </Title>
+          </div>
           <Card p="xs" shadow="md" withBorder={true}>
             <LoadingOverlay visible={getProfileIsLoading || loginIsLoading} />
             <div>
