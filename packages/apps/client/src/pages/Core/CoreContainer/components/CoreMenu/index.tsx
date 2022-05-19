@@ -1,9 +1,8 @@
-import { Button, Container, Divider, Group, Menu, Text } from '@mantine/core';
+import { Button, Container, Group, Menu, Text } from '@mantine/core';
 import { MouseEventHandler } from 'react';
-import { Link } from 'react-router-dom';
-import { Brush, Paint as PaintIcon, Power, Settings, UserCircle } from 'tabler-icons-react';
+import { Paint as PaintIcon, Power, UserCircle } from 'tabler-icons-react';
 import { logout } from '../../../../../authentication/authentication.slice';
-import { Role, User } from '../../../../../authentication/dtos/user.dto';
+import { User } from '../../../../../authentication/dtos/user.dto';
 import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
 import { useLogoutMutation } from '../../../../../store/services/api.service';
 
@@ -11,45 +10,6 @@ interface MenuButtonProps {
   handleLogout: MouseEventHandler<HTMLButtonElement>;
   user: User | null;
 }
-
-const AdminMenuButtons = (props: MenuButtonProps) => {
-  return (
-    <Group>
-      <Button variant="subtle" component={Link} to={'/'} leftIcon={<Brush size={16} />}>
-        Paints
-      </Button>
-      <Menu
-        control={
-          <Button leftIcon={<UserCircle size={18} />} variant="subtle">
-            My Menu
-          </Button>
-        }
-      >
-        <Menu.Label>{props.user ? `Welcome back, ${props.user.name}!` : ''}</Menu.Label>
-        <Menu.Item component={Link} to={'/settings'} icon={<Settings size={16} />}>
-          Settings
-        </Menu.Item>
-        <Divider />
-        <Menu.Item icon={<Power size={16} />} onClick={props.handleLogout}>
-          Logout
-        </Menu.Item>
-      </Menu>
-    </Group>
-  );
-};
-
-const MenuButtons = (props: MenuButtonProps) => {
-  return (
-    <Group>
-      <Menu control={<Button leftIcon={<UserCircle size={18} />}>My Menu</Button>}>
-        <Menu.Label>{props.user ? `Welcome back, ${props.user.name}!` : ''}</Menu.Label>
-        <Menu.Item icon={<Power size={16} />} onClick={props.handleLogout}>
-          Logout
-        </Menu.Item>
-      </Menu>
-    </Group>
-  );
-};
 
 export const CoreMenu = () => {
   const dispatch = useAppDispatch();
@@ -70,11 +30,15 @@ export const CoreMenu = () => {
           <PaintIcon /> A Paint Company
         </Text>
       </div>
-      {user?.role === Role.ADMIN ? (
-        <AdminMenuButtons handleLogout={handleLogout} user={user} />
-      ) : (
-        <MenuButtons handleLogout={handleLogout} user={user} />
-      )}
+
+      <Group>
+        <Menu control={<Button leftIcon={<UserCircle size={18} />}>My Menu</Button>}>
+          <Menu.Label>{user ? `Welcome back, ${user.name}!` : ''}</Menu.Label>
+          <Menu.Item icon={<Power size={16} />} onClick={handleLogout}>
+            Logout
+          </Menu.Item>
+        </Menu>
+      </Group>
     </Container>
   );
 };

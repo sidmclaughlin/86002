@@ -29,7 +29,7 @@ const LoginPage = () => {
     return () => {
       mountedRef.current = false;
     };
-  }, [data]);
+  }, [dispatch, data]);
 
   const [login, { isLoading: loginIsLoading }] = useLoginMutation();
 

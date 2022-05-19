@@ -39,11 +39,12 @@ export const BulkEditForm = ({ setModalVisible, paints }: Props) => {
   });
 
   const onSubmit = async (values: Record<string, any>) => {
-    await updatePaint({ id: values.blue_id, count: values.blue_count });
-    await updatePaint({ id: values.grey_id, count: values.grey_count });
-    await updatePaint({ id: values.black_id, count: values.black_count });
-    await updatePaint({ id: values.white_id, count: values.white_count });
-    await updatePaint({ id: values.purple_id, count: values.purple_count });
+    if (bluePaint.count !== values.blue_count) await updatePaint({ id: values.blue_id, count: values.blue_count });
+    if (greyPaint.count !== values.grey_count) await updatePaint({ id: values.grey_id, count: values.grey_count });
+    if (blackPaint.count !== values.black_count) await updatePaint({ id: values.black_id, count: values.black_count });
+    if (whitePaint.count !== values.white_count) await updatePaint({ id: values.white_id, count: values.white_count });
+    if (purplePaint.count !== values.purple_count)
+      await updatePaint({ id: values.purple_id, count: values.purple_count });
 
     setModalVisible(false);
   };
