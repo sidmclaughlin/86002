@@ -93,8 +93,9 @@ const LoginPage = () => {
                   render={({ field }) => (
                     <TextInput
                       {...field}
+                      autoCapitalize="off"
                       size="sm"
-                      placeholder="Email Address"
+                      placeholder="Email Address (case sensitive)"
                       error={errors.email && errors.email.message}
                       icon={<MailOutlined style={{ fontSize: '16px' }} />}
                     />
@@ -108,7 +109,7 @@ const LoginPage = () => {
                     <PasswordInput
                       {...field}
                       size="sm"
-                      placeholder="Password"
+                      placeholder="Password (case sensitive)"
                       error={errors.password && errors.password.message}
                       icon={<LockOutlined style={{ fontSize: '16px' }} />}
                     />

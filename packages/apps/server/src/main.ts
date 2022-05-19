@@ -40,7 +40,7 @@ async function bootstrap() {
   app.enableVersioning();
   app.enableCors({
     credentials: true,
-    origin: 'https://86002.sdny.dev',
+    origin: 'http://localhost:3000',
   });
 
   await app.listen(configService.get('SERVER_PORT'), configService.get('SERVER_HOST'));
