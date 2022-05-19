@@ -3,12 +3,13 @@ import { MouseEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 import { Brush, Paint as PaintIcon, Power, Settings, UserCircle } from 'tabler-icons-react';
 import { logout } from '../../../../../authentication/authentication.slice';
-import { Role } from '../../../../../authentication/dtos/user.dto';
+import { Role, User } from '../../../../../authentication/dtos/user.dto';
 import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
 import { useLogoutMutation } from '../../../../../store/services/api.service';
 
 interface MenuButtonProps {
   handleLogout: MouseEventHandler<HTMLButtonElement>;
+  user: User | null;
 }
 
 const AdminMenuButtons = (props: MenuButtonProps) => {
@@ -24,6 +25,7 @@ const AdminMenuButtons = (props: MenuButtonProps) => {
           </Button>
         }
       >
+        <Menu.Label>{props.user ? `Welcome back, ${props.user.name}!` : ''}</Menu.Label>
         <Menu.Item component={Link} to={'/settings'} icon={<Settings size={16} />}>
           Settings
         </Menu.Item>
@@ -40,6 +42,7 @@ const MenuButtons = (props: MenuButtonProps) => {
   return (
     <Group>
       <Menu control={<Button leftIcon={<UserCircle size={18} />}>My Menu</Button>}>
+        <Menu.Label>{props.user ? `Welcome back, ${props.user.name}!` : ''}</Menu.Label>
         <Menu.Item icon={<Power size={16} />} onClick={props.handleLogout}>
           Logout
         </Menu.Item>
@@ -51,7 +54,7 @@ const MenuButtons = (props: MenuButtonProps) => {
 export const CoreMenu = () => {
   const dispatch = useAppDispatch();
 
-  const { role } = useAppSelector(state => state.authentication.user) ?? {};
+  const user = useAppSelector(state => state.authentication.user);
 
   const [apiLogout] = useLogoutMutation();
 
@@ -67,10 +70,10 @@ export const CoreMenu = () => {
           <PaintIcon /> A Paint Company
         </Text>
       </div>
-      {role === Role.ADMIN ? (
-        <AdminMenuButtons handleLogout={handleLogout} />
+      {user?.role === Role.ADMIN ? (
+        <AdminMenuButtons handleLogout={handleLogout} user={user} />
       ) : (
-        <MenuButtons handleLogout={handleLogout} />
+        <MenuButtons handleLogout={handleLogout} user={user} />
       )}
     </Container>
   );
