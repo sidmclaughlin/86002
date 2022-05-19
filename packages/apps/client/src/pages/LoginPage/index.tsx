@@ -1,7 +1,18 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { getErrorMessage, LoginDto } from '@86002/core-kit';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
-import { Button, Card, Center, LoadingOverlay, PasswordInput, Space, TextInput, Title } from '@mantine/core';
+import {
+  Button,
+  Card,
+  Center,
+  LoadingOverlay,
+  PasswordInput,
+  Space,
+  Table,
+  Text,
+  TextInput,
+  Title,
+} from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useEffect, useRef } from 'react';
@@ -110,6 +121,35 @@ const LoginPage = () => {
               </form>
             </div>
           </Card>
+          <Space h={16} />
+          <Text>Use one of the following accounts to log in</Text>
+          <Space h={16} />
+          <Table>
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>User</td>
+                <td>john@example.com</td>
+                <td>password</td>
+              </tr>
+              <tr>
+                <td>Admin</td>
+                <td>jane@example.com</td>
+                <td>password</td>
+              </tr>
+              <tr>
+                <td>Editor</td>
+                <td>michelangelo@example.com</td>
+                <td>password</td>
+              </tr>
+            </tbody>
+          </Table>
         </div>
       </Center>
     </>

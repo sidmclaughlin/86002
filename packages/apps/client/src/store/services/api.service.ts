@@ -6,7 +6,7 @@ import { Settings } from '../../settings/dtos/settings.dto';
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/api/v1',
+    baseUrl: 'https://86002.sdny.dev/api/v1',
     credentials: 'include',
   }),
   tagTypes: ['Paints'],
