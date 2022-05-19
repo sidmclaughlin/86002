@@ -9,6 +9,7 @@ export const api = createApi({
     baseUrl: 'http://localhost:4000/api/v1',
     credentials: 'include',
   }),
+  tagTypes: ['Paints'],
   endpoints: builder => ({
     login: builder.mutation<User, LoginDto>({
       query: (data: LoginDto) => ({
@@ -28,6 +29,10 @@ export const api = createApi({
     }),
     getPaints: builder.query<Paint[], void>({
       query: () => ({ url: '/paints' }),
+      providesTags: result =>
+        result
+          ? [...result.map(({ id }) => ({ type: 'Paints' as const, id })), { type: 'Paints', id: 'LIST' }]
+          : [{ type: 'Paints', id: 'LIST' }],
     }),
     getPaint: builder.query<Paint, number>({
       query: (id: number) => ({ url: `/paints/${id}` }),
@@ -38,6 +43,7 @@ export const api = createApi({
         url: `/paints/${id}`,
         body: { ...rest },
       }),
+      invalidatesTags: [{ type: 'Paints', id: 'LIST' }],
     }),
     getSettings: builder.query<Settings, void>({
       query: () => ({ url: '/settings' }),

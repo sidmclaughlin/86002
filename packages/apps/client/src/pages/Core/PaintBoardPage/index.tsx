@@ -1,9 +1,9 @@
-import { Button, Divider, Grid, Header, LoadingOverlay, Space, Stack, Title } from '@mantine/core';
+import { Button, Divider, Grid, LoadingOverlay, Space, Title } from '@mantine/core';
 import { Helmet } from 'react-helmet-async';
 import { Role } from '../../../authentication/dtos/user.dto';
 import { useAppSelector } from '../../../store/hooks';
 import { useGetPaintsQuery, useGetSettingsQuery } from '../../../store/services/api.service';
-import { PaintChip } from './components/PaintChip';
+import { Swimlane } from './components/Swimlane';
 
 const PaintBoardPage = () => {
   const { data: paintData, error, isLoading } = useGetPaintsQuery();
@@ -11,13 +11,35 @@ const PaintBoardPage = () => {
 
   const { role } = useAppSelector(state => state.authentication.user!);
 
-  const paints = paintData
-    ? {
-        avail: paintData?.filter(p => p.count > (settingsData?.threshold_stock_low ?? 5)),
-        low: paintData?.filter(p => p.count <= (settingsData?.threshold_stock_low ?? 5)),
-        out: paintData?.filter(p => p.count === 0),
-      }
-    : undefined;
+  const paints = () =>
+    paintData
+      ? {
+          avail: paintData
+            ?.filter(p => p.count > (settingsData?.threshold_stock_low ?? 5))
+            .sort((a, b) => {
+              if (a.count < b.count) return 1;
+              if (a.count > b.count) return -1;
+
+              return 0;
+            }),
+          low: paintData
+            ?.filter(p => p.count <= (settingsData?.threshold_stock_low ?? 5) && p.count > 0)
+            .sort((a, b) => {
+              if (a.count < b.count) return 1;
+              if (a.count > b.count) return -1;
+
+              return 0;
+            }),
+          out: paintData
+            ?.filter(p => p.count === 0)
+            .sort((a, b) => {
+              if (a.count < b.count) return 1;
+              if (a.count > b.count) return -1;
+
+              return 0;
+            }),
+        }
+      : undefined;
 
   return (
     <>
@@ -32,18 +54,13 @@ const PaintBoardPage = () => {
 
       <Grid>
         <Grid.Col span={4}>
-          <Header height={24}>Available</Header>
-          <Stack mt={16}>
-            {paints?.avail.map(p => (
-              <PaintChip paint={p} />
-            ))}
-          </Stack>
+          <Swimlane paints={paints()?.avail} title="Available" />
         </Grid.Col>
         <Grid.Col span={4}>
-          <Header height={24}>Running Low</Header>
+          <Swimlane paints={paints()?.low} title="Running Low" />
         </Grid.Col>
         <Grid.Col span={4}>
-          <Header height={24}>Out of Stock</Header>
+          <Swimlane paints={paints()?.out} title="Out of Stock" />
         </Grid.Col>
       </Grid>
     </>
